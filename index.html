@@ -4,8 +4,9 @@
 <meta charset="utf-8">
 <title>Debias-SparseGPT: Bias-Aware Pruning for Large Language Models | EMNLP 2026</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="icon" type="image/svg+xml" href="static/images/favicon.svg">
+<meta name="theme-color" content="#0d2724">
 <meta name="description" content="Official project page for Debias-SparseGPT, EMNLP 2026: bias-aware pruning for large language models.">
-<link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
 <link rel="stylesheet" href="static/css/bulma.min.css">
 <link rel="stylesheet" href="static/css/index.css">
 <style>
@@ -164,40 +165,115 @@
 }
 
 </style>
+<link rel="stylesheet" href="static/css/modern.css">
+<style id="tree-logo-growth-pruning-style">
+/* Inline SVG makes the animation work when opening the HTML directly. */
+.hero-signature.hero-emblem .brand-tree-motion{position:relative;z-index:3;display:block;width:180px;height:180px;max-width:100%;flex:none;overflow:visible;border-radius:50%;animation:signature-arrive 850ms cubic-bezier(.18,.76,.22,1) both}
+@media(max-width:700px){.hero-signature.hero-emblem .brand-tree-motion{width:155px;height:155px}}
+@media(prefers-reduced-motion:reduce){.hero-signature.hero-emblem .brand-tree-motion{animation:none!important}}
+</style>
 </head>
 <body>
+<a class="skip-link" href="#overview">Skip to content</a>
+<header class="site-header"><div class="nav-shell">
+<a class="site-brand" href="#top"><img src="static/images/favicon.svg" alt="" width="32" height="32"><span>Debias<span class="brand-dash">-</span><strong>SparseGPT</strong></span></a>
+<nav aria-label="Main navigation"><a href="#overview">Overview</a><a href="#motivation">Motivation</a><a href="#method">Method</a><a href="#results">Results</a><a href="#code">Usage</a><a href="#bibtex">Citation</a></nav>
+
+</div></header>
 <section class="hero" id="top"><div class="hero-body"><div class="container is-max-desktop"><div class="columns is-centered"><div class="column has-text-centered">
-<h1 class="main-title">Debias-SparseGPT:<br>Bias-Aware Pruning for Large Language Models</h1>
-<div class="is-size-5 publication-authors">
-<a class="author-link" href="https://www.iproskurina.com/" target="_blank" rel="noopener">Irina Proskurina</a><sup>1,2</sup>,
-<a class="author-link" href="https://guillaumemetzler.github.io/" target="_blank" rel="noopener">Guillaume Metzler</a><sup>2</sup>,<br>
-<a class="author-link" href="https://antoinegourru.github.io/" target="_blank" rel="noopener">Antoine Gourru</a><sup>1</sup>,
-<a class="author-link" href="https://velcin.github.io/" target="_blank" rel="noopener">Julien Velcin</a><sup>3</sup>
-</div>
-<div class="is-size-6 publication-authors paper-affiliations">
-<p><sup>1</sup> Laboratoire Hubert Curien, CNRS, Saint-Étienne, France</p>
-<p><sup>2</sup> ERIC, Université Lumière Lyon 2 · Université Claude Bernard Lyon 1, France</p>
-<p><sup>3</sup> LIRIS, Centrale Lyon, CNRS, France</p>
-</div>
-<div class="symbol-links">
-<a href="https://aclanthology.org/2026.emnlp-main.1300/" target="_blank" rel="noopener" class="button is-rounded is-dark"><span class="icon"><img src="static/images/acl-logo.svg" class="acl-icon" alt="ACL Anthology logo"></span><span>Paper</span></a>
-<a href="https://aclanthology.org/2026.emnlp-main.1300.pdf" target="_blank" rel="noopener" class="button is-rounded is-dark"><span class="icon"><i class="fas fa-file-pdf"></i></span><span>PDF</span></a>
-<a href="https://github.com/upunaprosk/debias-llm-compressor" target="_blank" rel="noopener" class="button is-rounded is-dark"><span class="icon"><i class="fab fa-github"></i></span><span>Code</span></a>
-<a href="https://www.anr-dike.fr/" target="_blank" rel="noopener" class="button is-rounded is-dark"><span class="icon">⚖</span><span>Diké · ANR Project</span></a>
-</div>
+<div class="hero-emblem hero-signature"><span class="signature-arc signature-arc-one" aria-hidden="true"></span><span class="signature-arc signature-arc-two" aria-hidden="true"></span><svg class="brand-tree-motion" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 260 260" role="img" aria-labelledby="treeLogoTitle treeLogoDesc">
+<title id="treeLogoTitle">Debias-SparseGPT - EMNLP 2026</title>
+<desc id="treeLogoDesc">A neural tree grows, some extra connections are pruned, and the sparse tree settles into the final logo.</desc>
+<defs>
+  <path id="treeLogoTopArc" d="M 26,130 A 104,104 0 0 1 234,130"/>
+  <path id="treeLogoBottomArc" d="M 43,181 Q 130,269 217,181"/>
+  <style>
+    .tm-background{fill:#173e33}
+    .tm-ring{fill:none;stroke:#83bb9e;stroke-width:1.25;opacity:.55}
+    .tm-ring-inner{fill:none;stroke:#36755a;stroke-width:1;opacity:.52}
+    .tm-top-text{fill:#f3fbf5;font:700 16.7px Arial,Helvetica,sans-serif;letter-spacing:1.1px;text-anchor:middle}
+    .tm-bottom-text{fill:#9cddb9;font:700 17.3px Arial,Helvetica,sans-serif;letter-spacing:2px;text-anchor:middle}
+    .tm-line{fill:none;stroke:#91d5af;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:100;stroke-dashoffset:100;animation:tm-grow .95s cubic-bezier(.22,.75,.2,1) forwards}
+    .tm-trunk{stroke-width:5.2;animation-delay:.08s}
+    .tm-main{stroke-width:5.2;animation-delay:.50s}
+    .tm-main-later{stroke-width:5.2;animation-delay:.72s}
+    .tm-small{stroke-width:3;animation-delay:.95s}
+    .tm-small-later{stroke-width:3;animation-delay:1.12s}
+    .tm-candidate{stroke:#a9e6be;stroke-width:2.8;animation:tm-grow .73s 1.05s ease-out forwards,tm-prune .72s 2.03s ease-in-out forwards}
+    .tm-node{fill:#c2f1d4;stroke:#173e33;stroke-width:2;opacity:0;transform-box:fill-box;transform-origin:center;animation:tm-pop .38s 1.42s ease-out forwards}
+    .tm-node-late{animation-delay:1.62s}
+    .tm-candidate-node{fill:#a9e6be;stroke:#173e33;stroke-width:1.8;opacity:0;transform-box:fill-box;transform-origin:center;animation:tm-pop .28s 1.62s ease-out forwards,tm-node-prune .56s 2.04s ease-in forwards}
+    .tm-base{fill:none;stroke:#91d5af;stroke-width:4;stroke-linecap:round;stroke-dasharray:100;stroke-dashoffset:100;animation:tm-grow .55s 1.02s ease-out forwards}
+    .tm-survivors{animation:tm-settle .68s 2.66s ease-out both}
+    @keyframes tm-grow{from{stroke-dashoffset:100}to{stroke-dashoffset:0}}
+    @keyframes tm-prune{from{stroke-dashoffset:0;opacity:1}to{stroke-dashoffset:100;opacity:0}}
+    @keyframes tm-pop{from{opacity:0;transform:scale(.25)}to{opacity:1;transform:scale(1)}}
+    @keyframes tm-node-prune{from{opacity:1;transform:scale(1)}to{opacity:0;transform:scale(.2)}}
+    @keyframes tm-settle{0%{filter:drop-shadow(0 0 0 rgba(145,213,175,0))}50%{filter:drop-shadow(0 0 4px rgba(145,213,175,.72))}100%{filter:drop-shadow(0 0 0 rgba(145,213,175,0))}}
+    @media(prefers-reduced-motion:reduce){.tm-line,.tm-candidate,.tm-node,.tm-candidate-node,.tm-base,.tm-survivors{animation:none!important}.tm-line,.tm-base{stroke-dashoffset:0}.tm-node{opacity:1}.tm-candidate,.tm-candidate-node{opacity:0;stroke-dashoffset:100}}
+  </style>
+</defs>
+<circle cx="130" cy="130" r="126" class="tm-background"/>
+<circle cx="130" cy="130" r="119" class="tm-ring"/>
+<circle cx="130" cy="130" r="79" class="tm-ring-inner"/>
+<text class="tm-top-text"><textPath href="#treeLogoTopArc" startOffset="50%">DEBIAS-SPARSEGPT</textPath></text>
+<text class="tm-bottom-text"><textPath href="#treeLogoBottomArc" startOffset="50%">EMNLP 2026</textPath></text>
+<g class="tm-survivors">
+  <path class="tm-line tm-trunk" pathLength="100" d="M130 187 V118"/>
+  <path class="tm-line tm-main" pathLength="100" d="M130 151 L105 126 L87 103"/>
+  <path class="tm-line tm-main" pathLength="100" d="M130 136 L158 112 L171 91"/>
+  <path class="tm-line tm-main-later" pathLength="100" d="M130 167 L158 146 L181 145"/>
+  <path class="tm-line tm-main" pathLength="100" d="M130 123 L130 92 L111 74"/>
+  <path class="tm-line tm-main-later" pathLength="100" d="M130 116 L150 84"/>
+  <path class="tm-line tm-small" pathLength="100" d="M105 126 L78 126 L68 114"/>
+  <path class="tm-line tm-small" pathLength="100" d="M105 126 L106 100"/>
+  <path class="tm-line tm-small-later" pathLength="100" d="M158 112 L181 111 L189 98"/>
+  <path class="tm-line tm-small" pathLength="100" d="M158 112 L158 89"/>
+  <path class="tm-line tm-small-later" pathLength="100" d="M130 92 L138 72"/>
+  <path class="tm-line tm-small-later" pathLength="100" d="M158 146 L175 165"/>
+  <g>
+    <circle class="tm-node" cx="87" cy="103" r="6"/><circle class="tm-node" cx="68" cy="114" r="5"/>
+    <circle class="tm-node" cx="106" cy="100" r="5"/><circle class="tm-node" cx="111" cy="74" r="5"/>
+    <circle class="tm-node" cx="138" cy="72" r="6"/><circle class="tm-node" cx="150" cy="84" r="5"/>
+    <circle class="tm-node" cx="171" cy="91" r="6"/><circle class="tm-node tm-node-late" cx="158" cy="89" r="5"/>
+    <circle class="tm-node tm-node-late" cx="189" cy="98" r="5"/><circle class="tm-node tm-node-late" cx="181" cy="111" r="5"/>
+    <circle class="tm-node tm-node-late" cx="181" cy="145" r="6"/><circle class="tm-node tm-node-late" cx="175" cy="165" r="5"/>
+    <circle class="tm-node" cx="78" cy="126" r="5"/>
+  </g>
+  <path class="tm-base" pathLength="100" d="M116 190 H144"/>
+</g>
+<!-- Temporary dense-network connections retract during pruning. The settled logo stays recognizably unchanged. -->
+<g>
+  <path class="tm-line tm-candidate" pathLength="100" d="M87 103 L69 85 L56 81"/>
+  <path class="tm-line tm-candidate" pathLength="100" d="M111 74 L101 57"/>
+  <path class="tm-line tm-candidate" pathLength="100" d="M171 91 L186 76 L200 70"/>
+  <path class="tm-line tm-candidate" pathLength="100" d="M181 145 L200 134 L211 139"/>
+  <path class="tm-line tm-candidate" pathLength="100" d="M175 165 L191 177"/>
+  <circle class="tm-candidate-node" cx="56" cy="81" r="4"/>
+  <circle class="tm-candidate-node" cx="101" cy="57" r="4"/>
+  <circle class="tm-candidate-node" cx="200" cy="70" r="4"/>
+  <circle class="tm-candidate-node" cx="211" cy="139" r="4"/>
+  <circle class="tm-candidate-node" cx="191" cy="177" r="4"/>
+</g>
+</svg></div>
+<a class="conference-spotlight" href="https://aclanthology.org/2026.emnlp-main.1300/" target="_blank" rel="noopener"><strong>EMNLP 2026 · Main Conference</strong></a>
+<h1 class="main-title"><span class="title-project">Debias-<span class="title-hyphen"></span><span class="title-green">SparseGPT</span></span><span class="title-subtitle">Bias-Aware Pruning for Large Language Models</span></h1>
 
-<div class="conference-banner">
-  <a href="https://aclanthology.org/2026.emnlp-main.1300/"
-     target="_blank" rel="noopener"
-     class="conference-tag main">
-    EMNLP 2026 · MAIN
-  </a>
+<div class="is-size-5 publication-authors author-row" aria-label="Authors">
+<a class="author-link" href="https://www.iproskurina.com/" target="_blank" rel="noopener">Irina Proskurina</a><span class="author-dot" aria-hidden="true">·</span><a class="author-link" href="https://guillaumemetzler.github.io/" target="_blank" rel="noopener">Guillaume Metzler</a><span class="author-dot" aria-hidden="true">·</span><a class="author-link" href="https://antoinegourru.github.io/" target="_blank" rel="noopener">Antoine Gourru</a><span class="author-dot" aria-hidden="true">·</span><a class="author-link" href="https://velcin.github.io/" target="_blank" rel="noopener">Julien Velcin</a>
+</div>
+<div class="resource-links" aria-label="Paper and project resources">
+<a class="resource-button" href="https://aclanthology.org/2026.emnlp-main.1300/" target="_blank" rel="noopener"><img class="resource-logo acl-logo" src="static/images/acl-logo.svg" alt=""/><span>ACL Anthology</span></a>
+<a class="resource-button" href="https://arxiv.org/abs/2609.02496" target="_blank" rel="noopener"><img class="resource-logo" src="static/images/arxiv-webarena.svg" alt=""/><span>arXiv</span></a>
+<a class="resource-button" href="https://www.alphaxiv.org/abs/2609.02496" target="_blank" rel="noopener"><img class="resource-logo" src="https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/alphaxiv.svg" alt=""/><span>alphaXiv</span></a>
+<a class="resource-button" href="https://huggingface.co/iproskurina" target="_blank" rel="noopener"><img class="resource-logo" src="static/images/huggingface-webarena.svg" alt=""/><span>Hugging Face</span></a>
+<a class="resource-button" href="https://github.com/upunaprosk/debias-llm-compressor" target="_blank" rel="noopener"><img class="resource-logo" src="https://raw.githubusercontent.com/vllm-project/media-kit/main/vLLM-Logo.svg" alt=""/><span>vLLM integration</span></a>
+<a class="resource-button" href="https://github.com/upunaprosk/debias-llm-compressor" target="_blank" rel="noopener"><img class="resource-logo" src="static/images/github-webarena.svg" alt=""/><span>GitHub</span></a>
+<a class="resource-button" href="#bibtex"><img class="resource-logo" src="static/images/citation-webarena.svg" alt=""/><span>Citation</span></a>
 
-  <a href="https://theprimary.com/"
-     target="_blank" rel="noopener"
-     class="conference-tag news">
-    Media Coverage · The Primary News
-  </a>
+</div>
+<div class="media-center"><a class="media-inline" href="https://theprimary.com/" target="_blank" rel="noopener"><img src="static/images/media.svg" width="20" height="20" alt=""><span>Media coverage</span><span class="media-arrow" aria-hidden="true">↗</span></a></div>
+<div class="plant-hint" aria-label="Optional interactive Easter egg">✳ Click empty space anywhere to plant a tree <span aria-hidden="true">·</span> Click your tree to balance it</div>
 </div>
 </div></div></div></div></section>
 <section class="section hero is-light" id="overview">
@@ -329,7 +405,7 @@
 
 <div aria-labelledby="tab-main" class="panel" id="panel-main" role="tabpanel">
 
-  <h3>Performance–Bias Trade-off</h3>
+  <h3>Performance-Bias Trade-off</h3>
 
   <p>
     We evaluate the trade-off between downstream performance and
@@ -481,7 +557,7 @@ debias-sparsegpt mixed \
     url = "https://aclanthology.org/2026.emnlp-main.1300/",
     pages = "29600--29623",
     ISBN = "979-8-89176-459-0"}</code></pre></div></section>
-<footer class="project-footer">Debias-SparseGPT · EMNLP 2026 · <a href="https://aclanthology.org/2026.emnlp-main.1300/">Paper</a> · <a href="https://github.com/upunaprosk/debias-llm-compressor">Code</a></footer><script src="static/js/fontawesome.all.min.js"></script>
+<footer class="project-footer"><img class="footer-mark" src="static/images/favicon.svg" alt="" width="25" height="25"> Debias-SparseGPT · EMNLP 2026 · <a href="https://aclanthology.org/2026.emnlp-main.1300/">Paper</a> · <a href="https://github.com/upunaprosk/debias-llm-compressor">Code</a></footer><script src="static/js/fontawesome.all.min.js"></script>
 <script>
 (() => {
     const tabs = [...document.querySelectorAll('[data-tab]')];
@@ -659,6 +735,137 @@ debias-sparsegpt mixed \
   }
   slider.addEventListener('input', updateHeroMatrix);
   updateHeroMatrix();
+})();
+</script>
+
+<script>
+/* A tiny sprout accompanies the native mouse cursor; no external resources needed. */
+(function () {
+  if (!window.matchMedia || !window.matchMedia('(hover: hover) and (pointer: fine)').matches ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  var sprout = document.createElement('div');
+  sprout.className = 'tree-pointer';
+  sprout.setAttribute('aria-hidden', 'true');
+  sprout.innerHTML = '<svg viewBox="0 0 28 30" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M14 25V11" stroke="#246e4f" stroke-width="1.8" stroke-linecap="round" fill="none"/><path d="M14 18C5 18 4 12 4 8c8 0 10 3 10 10Z" fill="#8ccdaa" stroke="#246e4f" stroke-width="1.1"/><path d="M14 13C14 6 19 4 25 4c0 6-3 10-11 10Z" fill="#4aa778" stroke="#246e4f" stroke-width="1.1"/><path d="M9 27h10" stroke="#246e4f" stroke-width="1.6" stroke-linecap="round"/></svg>';
+  document.body.appendChild(sprout);
+  var x = -100, y = -100, tx = -100, ty = -100;
+  var active = false, visible = false, raf = 0;
+  function frame() {
+    x += (tx - x) * .25;
+    y += (ty - y) * .25;
+    sprout.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0)';
+    if (Math.abs(tx - x) > .15 || Math.abs(ty - y) > .15) raf = requestAnimationFrame(frame);
+    else raf = 0;
+  }
+  function setVisible(value) {
+    if (visible === value) return;
+    visible = value;
+    sprout.classList.toggle('is-visible', value);
+  }
+  document.addEventListener('pointermove', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    tx = e.clientX + 13;
+    ty = e.clientY + 15;
+    if (!active) { x = tx; y = ty; active = true; }
+    var target = e.target;
+    setVisible(!(target && target.closest && target.closest('a,button,input,textarea,select,[role="button"],[contenteditable="true"]')));
+    if (!raf) raf = requestAnimationFrame(frame);
+  }, { passive: true });
+  document.addEventListener('pointerdown', function (e) {
+    if (e.pointerType && e.pointerType !== 'mouse') return;
+    sprout.classList.remove('is-blooming');
+    void sprout.offsetWidth;
+    sprout.classList.add('is-blooming');
+  }, { passive: true });
+  document.addEventListener('pointerout', function (e) {
+    if (!e.relatedTarget) setVisible(false);
+  });
+  window.addEventListener('blur', function () { setVisible(false); });
+})();
+</script>
+<script>
+/* Optional plant-and-balance Easter egg; works under file:// and without libraries. */
+(function () {
+  var hero = document.getElementById('top');
+  var title = hero && hero.querySelector('.main-title');
+  if (!hero || !title) return;
+  var mediaReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var touchOnly = window.matchMedia && window.matchMedia('(hover: none) and (pointer: coarse)').matches;
+  var planted = [];
+  var layer = document.createElement('div');
+  layer.className = 'tree-garden';
+  layer.setAttribute('aria-label', 'Planted neural trees');
+  document.body.appendChild(layer);
+  var status = document.createElement('span');
+  status.className = 'garden-status';
+  status.setAttribute('role', 'status');
+  status.setAttribute('aria-live', 'polite');
+  document.body.appendChild(status);
+  var statusTimer;
+  function say(message) {
+    status.textContent = message;
+    status.classList.add('visible');
+    clearTimeout(statusTimer);
+    statusTimer = setTimeout(function () { status.classList.remove('visible'); }, 1700);
+  }
+  // The left-heavy form represents an illustrative imbalance, not literal model weights.
+  function treeMarkup() {
+    return '<svg viewBox="0 0 80 100" focusable="false" aria-hidden="true" xmlns="http://www.w3.org/2000/svg">' +
+      '<path class="garden-ground" d="M19 89 Q40 93 61 89"/>' +
+      '<g class="tree-grow">' +
+      '<path class="garden-stem" d="M40 87 V48"/>' +
+      '<path class="garden-left" d="M40 68 Q27 54 22 41 M40 53 Q27 39 18 29 M27 54 L13 50 M22 41 L31 26"/>' +
+      '<path class="garden-right-base" d="M40 67 Q51 59 54 52"/>' +
+      '<path class="garden-right-new" d="M40 68 Q54 52 61 40 M40 53 Q53 39 62 29 M53 54 L67 48 M61 40 L53 25"/>' +
+      '<circle class="leaf l1" cx="18" cy="29" r="5"/><circle class="leaf l2" cx="13" cy="50" r="4"/>' +
+      '<circle class="leaf l3" cx="31" cy="26" r="5"/><circle class="leaf l4" cx="22" cy="41" r="4"/>' +
+      '<circle class="leaf r1" cx="54" cy="52" r="4"/>' +
+      '<g class="right-leaves"><circle class="leaf" cx="62" cy="29" r="5"/><circle class="leaf" cx="67" cy="48" r="4"/><circle class="leaf" cx="53" cy="25" r="5"/><circle class="leaf" cx="61" cy="40" r="4"/></g>' +
+      '</g><g class="garden-sparkles"><path d="M10 23 l0 -5 M7 20 h6 M70 19 l0 -5 M67 16 h6 M72 62 l0 -5 M69 59 h6"/></g></svg>';
+  }
+  function balance(tree) {
+    if (tree.classList.contains('balanced')) return;
+    tree.classList.add('balanced');
+    tree.setAttribute('aria-label', 'Balanced neural tree');
+    tree.title = 'Balanced';
+    say('Balance restored ✓');
+  }
+  function balanceAll() {
+    if (!planted.some(function (item) { return !item.classList.contains('balanced'); })) return;
+    planted.forEach(balance);
+    say('The garden is balanced');
+  }
+  title.addEventListener('mouseenter', balanceAll);
+  title.addEventListener('focusin', balanceAll);
+  function plant(event) {
+    if (event.defaultPrevented || event.button !== 0) return;
+    var target = event.target;
+    if (!target || (target.closest && target.closest('a,button,input,select,textarea,summary,label,[role="button"],.main-title,.hero-emblem,.resource-links,.publication-authors,.conference-spotlight,.media-center,.plant-hint'))) return;
+    if (window.getSelection && String(window.getSelection()).trim()) return;
+    // Keep the easter egg on white space only; not on typography or data.
+    if (target.closest && target.closest('h1,h2,h3,h4,p,span,strong,em,img,svg,figcaption,pre,code,table')) return;
+    // Place trees in page coordinates, so they stay beside their planting spot while scrolling.
+    var x = event.clientX + window.scrollX;
+    var y = event.clientY + window.scrollY;
+    if (x < 42 || x > document.documentElement.scrollWidth - 42 || y < 95) return;
+    var tree = document.createElement('button');
+    tree.type = 'button';
+    tree.className = 'planted-tree';
+    tree.setAttribute('aria-label', 'Uneven neural tree. Click to balance it.');
+    tree.title = 'Click to balance';
+    tree.style.left = x + 'px';
+    tree.style.top = y + 'px';
+    tree.innerHTML = treeMarkup() + '<span class="tree-balance-label" aria-hidden="true"><span class="uneven-label"></span><span class="balanced-label"></span></span>';
+    layer.appendChild(tree);
+    planted.push(tree);
+    if (planted.length > 10) { var old = planted.shift(); old.remove(); }
+    tree.addEventListener('click', function (e) { e.stopPropagation(); balance(tree); });
+    if (mediaReduced) tree.classList.add('no-grow');
+    if (planted.length === 1) say('A little uneven... click it to balance 🌱');
+  }
+  document.addEventListener('click', plant);
+  // Only clicks in page whitespace plant trees; normal links, controls, and text stay untouched.
+  // Touch users can tap whitespace too, and keyboard users can activate planted trees.
 })();
 </script>
 </body></html>
